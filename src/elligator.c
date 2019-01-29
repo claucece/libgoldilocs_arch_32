@@ -12,6 +12,7 @@
 #include "word.h"
 #include "field.h"
 #include <goldilocks.h>
+#include <stdio.h>
 #include "api.h"
 
 /* Template stuff */
@@ -115,6 +116,12 @@ API_NS(invert_elligator_nonuniform) (
          * change this mask extraction.
          */
         sgn_ed_T = -(hint>>3 & 1);
+
+    printf("1 %x \n", sgn_s);
+    printf("2 %x \n", sgn_altx);
+    printf("3 %x \n", sgn_r0);
+    printf("4 %x \n", sgn_ed_T);
+
     gf a,b,c;
     mask_t is_identity;
     mask_t succ;

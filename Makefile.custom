@@ -34,7 +34,7 @@ PYTHON ?= python
 WARNFLAGS = -pedantic -Wall -Wextra -Werror -Wunreachable-code \
 	 -Wmissing-declarations -Wunused-function -Wno-overlength-strings $(EXWARN)
 
-INCFLAGS = -Isrc -Isrc/include -I$(BUILD_INC) -Isrc/include/arch_x86_64 -Isrc/arch_x86_64
+INCFLAGS = -Isrc -Isrc/include -I$(BUILD_INC) -Isrc/include/arch_32 -Isrc/arch_32
 PUB_INCFLAGS = -I$(BUILD_INC)
 LANGFLAGS = -std=c99 -fno-strict-aliasing
 LANGXXFLAGS = -fno-strict-aliasing
@@ -120,11 +120,11 @@ $(BUILD_C)/decaf_tables.c: $(BUILD_IBIN)/goldilocks_gen_tables
 
 $(BUILD_OBJ)/%.o: $(BUILD_C)/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c -o $@ $< \
-		-I build/obj/ -I src/ -I src/arch_x86_64 -I src/include/arch_x86_64
+		-I build/obj/ -I src/ -I src/arch_32 -I src/include/arch_32
 
 $(BUILD_OBJ)/goldilocks_gen_tables.o: src/goldilocks_gen_tables.c $(HEADERS)
 	$(CC) $(CFLAGS) \
-		-I build/obj/ -I src -I src/arch_x86_64 -I src/include/arch_x86_64 \
+		-I build/obj/ -I src -I src/arch_32 -I src/include/arch_32 \
 		-c -o $@ $<
 
 
@@ -155,7 +155,7 @@ endif
 # 	$(CC) $(CFLAGS) -I src/arch_x86_64 -I src/include/arch_x86_64 \
 # 	-c -o $@ $<
 
-$(BUILD_OBJ)/%.o: src/arch_x86_64/%.c $(HEADERS)
+$(BUILD_OBJ)/%.o: src/arch_32/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(BUILD_OBJ)/%.o: src/%.c $(HEADERS)

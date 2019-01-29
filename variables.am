@@ -1,4 +1,4 @@
-ARCH_NAME = arch_x86_64
+ARCH_NAME = arch_32
 
 LANGFLAGS = -std=c99 -fno-strict-aliasing
 

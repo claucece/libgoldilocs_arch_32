@@ -237,6 +237,7 @@ static void test_elligator() {
             if (len > Point::HASH_BYTES)
                 memcpy(&(*alts2[j])[Point::HASH_BYTES], &b1[Point::HASH_BYTES], len-Point::HASH_BYTES);
 
+            printf("\n THE OUTSIDE HINT %x \n", j);
             successes[j]  = goldilocks_successful( s.invert_elligator(*alts[j], j));
             successes2[j] = goldilocks_successful(ss.invert_elligator(*alts2[j],j));
 

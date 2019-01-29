@@ -11,6 +11,7 @@
  */
 #define _XOPEN_SOURCE 600 /* for posix_memalign */
 #include "word.h"
+#include <stdio.h>
 #include "field.h"
 
 #include <goldilocks.h>
@@ -788,7 +789,7 @@ void API_NS(precompute) (
             int gray = j ^ (j>>1);
             int idx = (((i+1)<<(t-1))-1) ^ gray;
             int delta;
-            
+
             pt_to_pniels(pn_tmp, start);
             memcpy(table->table[idx], pn_tmp->n, sizeof(pn_tmp->n));
             gf_copy(zs[idx], pn_tmp->z);
